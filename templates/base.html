@@ -12,11 +12,11 @@
   </head>
 
   <body>
-    <section>
-      <div>
+    <section class="site-shell">
+      <div class="site-container">
         {% include "partials/nav.html" %}
 
-        <main>{% block content %} {% endblock content %}</main>
+        <main class="site-main">{% block content %} {% endblock content %}</main>
 
         {% include "partials/footer.html" %}
       </div>

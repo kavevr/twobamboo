@@ -1,0 +1,14 @@
+{% macro date(page) %}
+{% if page.date %}<p><time datetime="{{ page.date }}">{{ page.date }}</time></p>{% endif %}
+{% endmacro date %}
+
+{% macro terms(page, kind, label) %}
+{% if page.taxonomies[kind] %}
+<p>
+  {{ label }}:
+  {% for term in page.taxonomies[kind] %}
+  <a href="{{ get_taxonomy_url(kind=kind, name=term) }}">{{ term }}</a>{% if not loop.last %}, {% endif %}
+  {% endfor %}
+</p>
+{% endif %}
+{% endmacro terms %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% import "macros/page-meta.html" as page_meta %}
 {% import "macros/toc.html" as toc %}
 
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
@@ -11,24 +12,10 @@
 <article>
   <header>
     <h1>{{ page.title }}</h1>
-    {% if page.date %}<p><time datetime="{{ page.date }}">{{ page.date }}</time></p>{% endif %}
+    {{ page_meta::date(page=page) }}
     {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-    {% if page.taxonomies.tags %}
-    <p>
-      Tags:
-      {% for tag in page.taxonomies.tags %}
-      <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-    {% endif %}
-    {% if page.taxonomies.categories %}
-    <p>
-      Categories:
-      {% for category in page.taxonomies.categories %}
-      <a href="{{ get_taxonomy_url(kind='categories', name=category) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-    {% endif %}
+    {{ page_meta::terms(page=page, kind="tags", label="Tags") }}
+    {{ page_meta::terms(page=page, kind="categories", label="Categories") }}
   </header>
 
   {{ toc::render(toc=page.toc) }}
