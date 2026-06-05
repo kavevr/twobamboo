@@ -1,8 +1,14 @@
 # The URL the site will be built for
-base_url = "https://example.com"
+base_url = "http://127.0.0.1"
+title = "Twobamboo"
+description = "A Zola blog."
+author = "kavevr"
+build_search_index = false
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+taxonomies = [
+  { name = "tags" },
+  { name = "categories" },
+]
 
 [markdown]
 

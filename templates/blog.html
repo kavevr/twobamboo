@@ -1,14 +1,45 @@
 {% extends "base.html" %}
 
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+
 {% block content %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
-<ul>
-  <!-- If you are using pagination, section.pages will be empty.
-       You need to use the paginator object -->  
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+<section>
+  <h1>{{ section.title }}</h1>
+  {% if section.description %}<p>{{ section.description }}</p>{% endif %}
+  {{ section.content | safe }}
+
+  {% if paginator %}
+  {% set pages = paginator.pages %}
+  {% else %}
+  {% set pages = section.pages %}
+  {% endif %}
+
+  <ul>
+  {% for page in pages %}
+    <li>
+      <article>
+        <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+        {% if page.date %}<p><time datetime="{{ page.date }}">{{ page.date }}</time></p>{% endif %}
+        {% if page.description %}<p>{{ page.description }}</p>{% endif %}
+        {% if page.taxonomies.tags %}
+        <p>
+          Tags:
+          {% for tag in page.taxonomies.tags %}
+          <a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+      </article>
+    </li>
   {% endfor %}
-</ul>
+  </ul>
+
+  {% if paginator %}
+  <nav>
+    {% if paginator.previous %}<a href="{{ paginator.previous }}">Previous</a>{% endif %}
+    <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+    {% if paginator.next %}<a href="{{ paginator.next }}">Next</a>{% endif %}
+  </nav>
+  {% endif %}
+</section>
 {% endblock content %}

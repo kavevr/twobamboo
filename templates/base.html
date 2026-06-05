@@ -1,17 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    {% if config.description %}
+    <meta name="description" content="{{ config.description }}" />
+    {% endif %}
+    {% block head %}{% endblock head %}
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>MyBlog</title>
-</head>
+  <body>
+    <section>
+      <div>
+        <header>
+          <a href="{{ get_url(path='/') }}">Home</a>
+          <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
+          <a href="{{ get_url(path='tags') }}">Tags</a>
+          <a href="{{ get_url(path='categories') }}">Categories</a>
+          <a href="{{ get_url(path='@/about/_index.md') }}">About</a>
+        </header>
 
-<body>
-  <section class="section">
-    <div class="container">
-      {% block content %}  {% endblock content %}
-    </div>
-  </section>
-</body>
-
+        <main>{% block content %} {% endblock content %}</main>
+      </div>
+    </section>
+  </body>
 </html>
