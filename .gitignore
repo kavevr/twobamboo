@@ -1,3 +1,5 @@
 AGENTS.md
 /public
 /node_modules
+/content/**
+!/content/
