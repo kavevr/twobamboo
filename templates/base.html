@@ -7,21 +7,18 @@
     {% if config.description %}
     <meta name="description" content="{{ config.description }}" />
     {% endif %}
+    <link rel="stylesheet" href="{{ get_url(path='css/main.css') }}" />
     {% block head %}{% endblock head %}
   </head>
 
   <body>
     <section>
       <div>
-        <header>
-          <a href="{{ get_url(path='/') }}">Home</a>
-          <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
-          <a href="{{ get_url(path='tags') }}">Tags</a>
-          <a href="{{ get_url(path='categories') }}">Categories</a>
-          <a href="{{ get_url(path='@/about/_index.md') }}">About</a>
-        </header>
+        {% include "partials/nav.html" %}
 
         <main>{% block content %} {% endblock content %}</main>
+
+        {% include "partials/footer.html" %}
       </div>
     </section>
   </body>

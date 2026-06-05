@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% import "macros/toc.html" as toc %}
+
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 {% block head %}
 {% if page.description %}<meta name="description" content="{{ page.description }}" />{% endif %}
@@ -29,25 +31,7 @@
     {% endif %}
   </header>
 
-  {% if page.toc %}
-  <nav>
-    <h2>Table of contents</h2>
-    <ul>
-      {% for h1 in page.toc %}
-      <li>
-        <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-        {% if h1.children %}
-        <ul>
-          {% for h2 in h1.children %}
-          <li><a href="{{ h2.permalink | safe }}">{{ h2.title }}</a></li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-  </nav>
-  {% endif %}
+  {{ toc::render(toc=page.toc) }}
 
   <div>
     {{ page.content | safe }}

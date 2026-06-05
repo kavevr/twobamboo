@@ -3,13 +3,14 @@
 {% block title %}{{ taxonomy.name | title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-<section>
+<section class="taxonomy-page">
   <h1>{{ taxonomy.name | title }}</h1>
-  <ul>
+  <ul class="term-list">
     {% for term in terms %}
     <li>
       <a href="{{ term.permalink | safe }}">
-        {{ term.name }} ({{ term.page_count }})
+        <span>{{ term.name }}</span>
+        <span>{{ term.page_count }}</span>
       </a>
     </li>
     {% endfor %}

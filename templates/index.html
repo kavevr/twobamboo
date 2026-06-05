@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% import "macros/post-list.html" as post_list %}
+
 {% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
@@ -8,15 +10,7 @@
 
 {% set blog = get_section(path="blog/_index.md") %}
 <h2>Latest posts</h2>
-<ul>
-  {% for page in blog.pages | slice(end=5) %}
-  <li>
-    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-    {% if page.date %}<time datetime="{{ page.date }}">{{ page.date }}</time>{% endif %}
-    {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-  </li>
-  {% endfor %}
-</ul>
+{{ post_list::list(pages=blog.pages | slice(end=5)) }}
 
 <p><a href="{{ get_url(path='@/blog/_index.md') }}">All posts</a></p>
 {% endblock content %}

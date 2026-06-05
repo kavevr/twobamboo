@@ -3,6 +3,8 @@
 {% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-<h1>{{ section.title }}</h1>
-{{ section.content | safe }}
+<section class="about-page">
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+</section>
 {% endblock content %}
