@@ -8,17 +8,13 @@
     <meta name="description" content="{{ config.description }}" />
     {% endif %}
     <link rel="stylesheet" href="{{ get_url(path='/css/main.css') }}">
-{% block head %}{% endblock head %}
+    {% block head %}{% endblock head %}
   </head>
 
   <body>
-    <section class="container">
-      <div >
-        {% include "nav.html" %}
-
-        <main >{% block content %} {% endblock content %}</main>
-
-      </div>
-    </section>
+    <div class="container">
+      {% include "nav.html" %}
+      <main class="site-main">{% block content %}{% endblock content %}</main>
+    </div>
   </body>
 </html>

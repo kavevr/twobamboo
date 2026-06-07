@@ -156,19 +156,31 @@ a:hover {
 
 /* custom */
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #111;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
 .container {
   margin: 0 auto;
   width: 70%;
   max-width: 800px;
+  padding: 0 16px 32px;
 }
 
-header {
+.site-header {
   margin: 20px 0 ;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-header a {
+.site-header a {
   font-size: 24px;
   color: black;
   text-decoration: none;
@@ -177,7 +189,7 @@ header a {
 }
 
 
-header a:hover {  
+.site-header a:hover {  
   text-decoration: underline;
 }
 
@@ -185,9 +197,42 @@ article {
   overflow: hidden;
 }
 
+.section-page,
+.page-header,
+.page-content,
+.post-nav {
+  margin-bottom: 24px;
+}
+
+.post-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.post-list li + li {
+  margin-top: 8px;
+}
+
+.post-list__link {
+  display: block;
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.post-nav a,
+.post-nav span {
+  display: inline-block;
+}
 
 pre {
-  font-family: "Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace";
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
   padding: 10px;
   border-radius: 2px;
   overflow: auto;
@@ -200,4 +245,3 @@ pre code span {
   line-height: 1.4;
 
 }
-
