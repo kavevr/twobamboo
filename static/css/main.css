@@ -209,14 +209,11 @@ article {
   list-style: none;
 }
 
-.post-list li + li {
-  margin-top: 8px;
-}
 
 .post-list__link {
   display: block;
   font-size: 20px;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .post-nav {
