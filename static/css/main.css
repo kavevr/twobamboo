@@ -9,8 +9,8 @@ main {
   display: block;
 }
 h1 {
+  margin: 0;
   font-size: 2em;
-  margin: 0.67em 0;
 }
 hr {
   box-sizing: content-box;
@@ -145,6 +145,59 @@ template {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 /* custom */
 
+.container {
+  margin: 0 auto;
+  width: 70%;
+  max-width: 800px;
+}
+
+header {
+  margin: 20px 0 ;
+  display: flex;
+  gap: 20px;
+}
+
+header a {
+  font-size: 24px;
+  color: black;
+  text-decoration: none;
+  padding: 20px 0;
+  display: inline-block;
+}
+
+
+header a:hover {  
+  text-decoration: underline;
+}
+
+article {
+  overflow: hidden;
+}
+
+
+pre {
+  font-family: "Consolas,Menlo,Monaco,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace";
+  padding: 10px;
+  border-radius: 2px;
+  overflow: auto;
+}
+
+
+
+
+pre code span {
+  line-height: 1.4;
+
+}
 

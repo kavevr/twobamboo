@@ -1,8 +1,13 @@
 {% macro date(page) %}
-{% if page.date %}<p><time datetime="{{ page.date }}">{{ page.date }}</time></p>{% endif %}
+
+{# 显示文章创建日期 #}
+{% if page.date %} <span class="postdate">Published <time datetime="{{ page.date }}">{{ page.date }}</time> </span>{% endif %}
+
 {% endmacro date %}
 
 {% macro terms(page, kind, label) %}
+
+{# 显示标签和分类 #}
 {% if page.taxonomies[kind] %}
 <p>
   {{ label }}:
