@@ -5,7 +5,7 @@
 {% block title %}{{ term.name }} | {{ taxonomy.name | title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-<section class="taxonomy-page">
+<section >
   <h1>{{ term.name }}</h1>
 
   {% if paginator %}
@@ -14,7 +14,7 @@
   {% set pages = term.pages %}
   {% endif %}
 
-  <ul class="term-posts">
+  <ul >
     {% for page in pages %}
     <li>
       <a href="{{ page.permalink | safe }}">{{ page.title }}</a>

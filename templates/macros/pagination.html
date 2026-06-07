@@ -1,16 +1,16 @@
 {% macro pager(paginator) %}
 {% if paginator %}
-<nav class="pagination">
+<nav >
   {% if paginator.previous %}
   <a href="{{ paginator.previous }}">Previous</a>
   {% else %}
-  <span class="pagination-placeholder">Previous</span>
+  <span >Previous</span>
   {% endif %}
-  <span class="pagination-status">Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+  <span >Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
   {% if paginator.next %}
   <a href="{{ paginator.next }}">Next</a>
   {% else %}
-  <span class="pagination-placeholder">Next</span>
+  <span >Next</span>
   {% endif %}
 </nav>
 {% endif %}

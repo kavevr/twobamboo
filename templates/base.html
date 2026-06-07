@@ -7,16 +7,16 @@
     {% if config.description %}
     <meta name="description" content="{{ config.description }}" />
     {% endif %}
-    <link rel="stylesheet" href="{{ get_url(path='css/main.css') }}" />
-    {% block head %}{% endblock head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+{% block head %}{% endblock head %}
   </head>
 
   <body>
-    <section class="site-shell">
-      <div class="site-container">
+    <section >
+      <div >
         {% include "partials/nav.html" %}
 
-        <main class="site-main">{% block content %} {% endblock content %}</main>
+        <main >{% block content %} {% endblock content %}</main>
 
         {% include "partials/footer.html" %}
       </div>
